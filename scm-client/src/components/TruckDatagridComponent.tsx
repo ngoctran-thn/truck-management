@@ -37,7 +37,7 @@ const TruckDatagridComponent: FC = (props) => {
   }, []);
 
   const onTruckClick = (e: any) => {
-    navigate('/truck/$(e.row.id)')
+    navigate(`/truck/${e.row.id}`)
   };
 
   return (
