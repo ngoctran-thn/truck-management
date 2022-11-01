@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
 import { Truck } from "../type/Truck";
 import { getTruckData } from "../controllers/TruckController";
+import { useNavigate } from "react-router-dom";
 const columns: GridColDef[] = [
   {
     field: "licencePlate",
@@ -21,6 +22,7 @@ const columns: GridColDef[] = [
 
 const TruckDatagridComponent: FC = (props) => {
   const [truckArray, setTruckArray] = useState<Array<Truck>>([]);
+  const navigate = useNavigate();
   async function readTruckData() {
     await getTruckData()
       .catch(console.error)
@@ -35,7 +37,7 @@ const TruckDatagridComponent: FC = (props) => {
   }, []);
 
   const onTruckClick = (e: any) => {
-    console.log(e);
+    navigate(`/truck/${e.row.id}`)
   };
 
   return (
