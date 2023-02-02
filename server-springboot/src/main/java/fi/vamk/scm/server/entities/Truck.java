@@ -1,6 +1,7 @@
 package fi.vamk.scm.server.entities;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
 
 
